@@ -9,12 +9,18 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      <Sidebar />
+    <div className="min-h-screen bg-gray-100">
+      <div className="flex">
+        {/* Sidebar → hidden on mobile */}
+        <aside className="hidden md:block">
+          <Sidebar />
+        </aside>
 
-      <div className="flex-1">
-        <Topbar />
-        <main className="p-6">{children}</main>
+        {/* Main content */}
+        <div className="flex-1 w-full">
+          <Topbar />
+          <main className="p-4 md:p-6">{children}</main>
+        </div>
       </div>
     </div>
   );
